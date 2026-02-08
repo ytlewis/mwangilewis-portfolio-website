@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: lewis-portfolio-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        fromDatabase:
+          name: lewis-portfolio-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 24h
+      - key: FRONTEND_URL
+        value: https://mwangilewis.com
+      - key: EMAIL_SERVICE
+        value: gmail
+      - key: ADMIN_EMAIL
+        value: gathaiyalewis1122@gmail.com
+
+databases:
+  - name: lewis-portfolio-db
+    databaseName: lewis-portfolio
+    user: portfolio-user

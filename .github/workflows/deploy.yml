@@ -1,0 +1,134 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Run tests before deployment
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: Install frontend dependencies
+        run: npm ci
+      
+      - name: Run frontend tests
+        run: npm test
+        env:
+          CI: true
+      
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm ci
+      
+      - name: Run backend tests
+        run: |
+          cd backend
+          npm test
+        env:
+          CI: true
+          NODE_ENV: test
+      
+      - name: Build frontend
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: https://api.mwangilewis.com
+          NEXT_PUBLIC_SITE_URL: https://mwangilewis.com
+
+  # Deploy frontend to Vercel (automatic via Vercel GitHub integration)
+  # This job is informational - actual deployment happens via Vercel
+  deploy-frontend:
+    name: Deploy Frontend
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Notify deployment
+        run: |
+          echo "Frontend deployment triggered via Vercel GitHub integration"
+          echo "Check Vercel dashboard for deployment status"
+
+  # Deploy backend (if using custom deployment)
+  # Uncomment and configure if not using Railway/Render auto-deploy
+  # deploy-backend:
+  #   name: Deploy Backend
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main'
+  #   
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #     
+  #     - name: Deploy to Railway
+  #       run: |
+  #         echo "Backend deployment triggered via Railway GitHub integration"
+  #         echo "Check Railway dashboard for deployment status"
+
+  # Lighthouse CI for performance monitoring
+  lighthouse:
+    name: Lighthouse CI
+    needs: deploy-frontend
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Wait for deployment
+        run: sleep 60
+      
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: |
+            https://mwangilewis.com
+            https://mwangilewis.com/projects
+            https://mwangilewis.com/contact
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  # Notify on deployment completion
+  notify:
+    name: Notify Deployment Status
+    needs: [test, deploy-frontend]
+    runs-on: ubuntu-latest
+    if: always() && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Deployment Success
+        if: needs.test.result == 'success' && needs.deploy-frontend.result == 'success'
+        run: |
+          echo "✅ Deployment successful!"
+          echo "Frontend: https://mwangilewis.com"
+          echo "Backend: https://api.mwangilewis.com"
+      
+      - name: Deployment Failed
+        if: needs.test.result == 'failure' || needs.deploy-frontend.result == 'failure'
+        run: |
+          echo "❌ Deployment failed!"
+          echo "Check the logs for details"
+          exit 1

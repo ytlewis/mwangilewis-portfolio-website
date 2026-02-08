@@ -1,0 +1,238 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "toggle": "Toggle Theme"
+  },
+  "language": {
+    "english": "English",
+    "swahili": "Swahili",
+    "french": "French",
+    "toggle": "Change Language"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "home": {
+    "hero": {
+      "name": "Lewis Gathaiya",
+      "title": "Cybersecurity Professional & Information Systems Specialist",
+      "description": "Passionate about protecting digital systems and data from cyber threats, with hands-on experience in ethical hacking, network security, and secure software development.",
+      "viewWork": "View My Work",
+      "getInTouch": "Get In Touch"
+    },
+    "about": {
+      "title": "About Me",
+      "subtitle": "Professional Profile",
+      "description": "A motivated and detail-oriented Information Systems Technology professional with a strong focus on cybersecurity. Passionate about protecting digital systems and data from cyber threats, with hands-on experience in ethical hacking, network security, and secure software development.",
+      "coreSkills": "Core Skills",
+      "contactInfo": "Contact Information",
+      "skills": {
+        "cybersecurity": "Cybersecurity Expertise",
+        "ethicalHacking": "Ethical Hacking",
+        "networkSecurity": "Network Security",
+        "problemSolving": "Problem Solving"
+      }
+    },
+    "experience": {
+      "title": "Work Experience",
+      "subtitle": "My professional journey and work experience",
+      "roles": {
+        "ictIntern": {
+          "title": "ICT Intern",
+          "organization": "Ministry of Cooperatives",
+          "period": "May 2025 - Aug 2025",
+          "description": "Provided comprehensive technical support to over 50 staff members, excelling in hardware/software troubleshooting, network maintenance, and system updates."
+        },
+        "callCenter": {
+          "title": "Call Centre Agent",
+          "organization": "CCI-Global",
+          "period": "Nov 2025 - Present",
+          "description": "Expertly handled high-volume customer and courier inquiries for Glovo across six African countries."
+        },
+        "volunteerTeacher": {
+          "title": "Volunteer Teacher",
+          "organization": "Christ Victory Centre",
+          "period": "Sep 2023 - Dec 2023",
+          "description": "Taught Mathematics, Science, and English to students, developing strong communication and problem-solving skills."
+        }
+      }
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "subtitle": "Check out my latest work",
+      "portfolio": {
+        "title": "Portfolio Website",
+        "description": "A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features include dark mode, internationalization, and a comprehensive admin dashboard.",
+        "viewAll": "View All Projects"
+      }
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "subtitle": "Let's work together on your next project",
+      "callMe": "Call Me",
+      "emailMe": "Email Me",
+      "sendMessage": "Or Send Me a Message"
+    },
+    "footer": {
+      "title": "Lewis Gathaiya",
+      "subtitle": "Cybersecurity Professional & Information Systems Specialist",
+      "quickLinks": "Quick Links",
+      "connect": "Connect",
+      "email": "Email",
+      "phone": "Phone",
+      "copyright": "All rights reserved."
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "bio": "I'm a dedicated full-stack developer with expertise in modern web technologies. Passionate about creating innovative solutions that bridge the gap between design and functionality. With a strong foundation in both frontend and backend development, I enjoy tackling complex challenges and turning ideas into reality.",
+    "skills": "Skills & Expertise",
+    "education": "Education",
+    "personalInfo": "Personal Information",
+    "name": "Lewis Gathaiya",
+    "location": "Nairobi, Kenya",
+    "email": "gathaiyalewis1122@gmail.com",
+    "phone": "+254702320995",
+    "skillsDescription": "Here are some of the technologies and skills I've developed over the years:",
+    "educationDescription": "My educational journey and professional development:",
+    "professionalProfile": "Professional Profile",
+    "professionalDescription": "A motivated and detail-oriented Information Systems Technology professional with a strong focus on cybersecurity. Passionate about protecting digital systems and data from cyber threats, with hands-on experience in ethical hacking, network security, and secure software development. Committed to continuous learning and adapting to the evolving cybersecurity landscape. Demonstrates exceptional problem-solving abilities, critical thinking, and communication skills that drive successful project outcomes.",
+    "aboutMeTitle": "About Me",
+    "aboutMeParagraph1": "As a dedicated cybersecurity professional and Information Systems graduate, I bring a unique blend of technical expertise and strategic thinking to every challenge. My journey in technology has been driven by a passion for securing digital environments and empowering organizations to thrive in an increasingly connected world.",
+    "aboutMeParagraph2": "With proven experience across government, private sector, and community service, I excel at translating complex technical concepts into actionable solutions that protect assets and enhance operational efficiency.",
+    "coreCompetencies": "Core Competencies",
+    "coreCompetenciesDescription": "A comprehensive skill set combining technical expertise with essential professional capabilities",
+    "technicalSkills": "Technical Skills",
+    "professionalSkills": "Professional Skills",
+    "professionalExperience": "Professional Experience",
+    "professionalExperienceDescription": "Proven track record of excellence across diverse roles and industries",
+    "educationCertifications": "Education & Certifications",
+    "educationCertificationsDescription": "A strong academic foundation complemented by industry-recognized certifications",
+    "criticalThinking": "Critical Thinking",
+    "digitalMarketing": "Digital Marketing",
+    "communicationSkills": "Communication Skills",
+    "informationSystems": "Information Systems",
+    "workExperience": {
+      "ictIntern": "Provided comprehensive technical support to over 50 staff members, excelling in hardware/software troubleshooting, network maintenance, and system updates. Successfully improved system performance and delivered effective end-user training, demonstrating strong problem-solving abilities and technical expertise.",
+      "callCenter": "Expertly handled high-volume customer and courier inquiries for Glovo across six African countries. Demonstrated exceptional communication skills by resolving complex delivery issues, managing escalations efficiently, and consistently ensuring high customer satisfaction rates.",
+      "volunteerTeacher": "Taught Mathematics, Science, and English to students, developing strong communication, problem-solving, and organizational skills. Created engaging lesson plans and fostered a positive learning environment that encouraged student growth and achievement."
+    },
+    "education": {
+      "university": {
+        "title": "Bachelor of Science in Information Systems and Technology",
+        "organization": "United States International University",
+        "period": "Sep 2021 - Sep 2025",
+        "description": "Graduated with a comprehensive understanding of information systems, cybersecurity, and technology management. Developed strong analytical and technical skills with a focus on protecting digital systems and data from cyber threats."
+      },
+      "ethicalHacking": {
+        "title": "Intermediate Ethical Hacking",
+        "organization": "Cisco Networking Academy",
+        "period": "Oct 2025 - Dec 2025",
+        "description": "Advanced certification in ethical hacking techniques, penetration testing, and security assessment. Gained hands-on experience in identifying vulnerabilities and implementing security measures."
+      },
+      "digitalMarketing": {
+        "title": "Certificate in Digital Marketing",
+        "organization": "Hubspot Academy",
+        "period": "Sep 2025 - Nov 2025",
+        "description": "Comprehensive certification covering modern digital marketing strategies, SEO, content marketing, and analytics. Developed skills in creating effective online marketing campaigns."
+      },
+      "icdl": {
+        "title": "Certificate in ICDL",
+        "organization": "JKUAT",
+        "period": "May 2021 - Aug 2021",
+        "description": "International Computer Driving License certification covering essential computer skills, office applications, and digital literacy."
+      },
+      "highSchool": {
+        "title": "High School Certificate",
+        "organization": "Pioneer School",
+        "period": "Jan 2017 - Apr 2021",
+        "description": "Completed secondary education with strong performance in sciences and mathematics, laying the foundation for a career in technology."
+      }
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "technologies": "Technologies Used",
+    "searchPlaceholder": "Search projects...",
+    "allLanguages": "All Languages",
+    "showingResults": "Showing {count} of {total} projects",
+    "noResults": "No projects found matching your criteria.",
+    "clearFilters": "Clear filters",
+    "featured": "Featured",
+    "lastUpdated": "Updated {time}",
+    "liveData": "Live data from GitHub API",
+    "refreshData": "Refresh GitHub data",
+    "tryAgain": "Try Again",
+    "loadingProjects": "Loading projects...",
+    "errorLoading": "Failed to load projects. Please try again later."
+  },
+  "experience": {
+    "title": "Work Experience",
+    "current": "Current",
+    "duration": "Duration",
+    "description": "My professional journey and work experience",
+    "workHistory": "Work History",
+    "vertical": "Vertical",
+    "horizontal": "Horizontal",
+    "interactiveTimeline": "Interactive Timeline",
+    "switchViews": "Switch between vertical and horizontal views to explore my work experience in different formats."
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's work together on your next project",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again.",
+    "callMe": "Call Me",
+    "emailMe": "Email Me",
+    "phone": "+254702320995",
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMinLength": "Name must be at least 2 characters",
+      "nameMaxLength": "Name must be less than 100 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must be at least 10 characters",
+      "messageMaxLength": "Message must be less than 1000 characters"
+    },
+    "placeholders": {
+      "name": "Enter your full name",
+      "email": "Enter your email address",
+      "message": "Tell me about your project or how I can help you..."
+    }
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "login": "Login",
+    "logout": "Logout",
+    "contacts": "Contact Messages",
+    "noMessages": "No messages yet"
+  }
+}

@@ -1,0 +1,100 @@
+====================================================================
+SIMPLE STEPS TO PUSH YOUR PORTFOLIO TO GITHUB
+====================================================================
+
+STEP 1: INSTALL GIT
+-------------------
+1. Go to: https://git-scm.com/download/win
+2. Download and install Git for Windows
+3. Use all default settings during installation
+4. Restart your terminal/command prompt
+
+
+STEP 2: CONFIGURE GIT (One-time setup)
+---------------------------------------
+Open Command Prompt or PowerShell and run:
+
+git config --global user.name "Lewis Gathaiya"
+git config --global user.email "gathaiyalewis1122@gmail.com"
+
+
+STEP 3: CREATE GITHUB ACCOUNT
+------------------------------
+1. Go to: https://github.com
+2. Click "Sign up"
+3. Create your account
+4. Verify your email
+
+
+STEP 4: CREATE NEW REPOSITORY ON GITHUB
+----------------------------------------
+1. Log in to GitHub
+2. Click the "+" icon (top right)
+3. Click "New repository"
+4. Repository name: lewis-portfolio-website
+5. Description: Professional portfolio with multilingual support
+6. Make it PUBLIC (required for free deployment)
+7. DO NOT check "Initialize with README"
+8. Click "Create repository"
+9. KEEP THIS PAGE OPEN - you'll need the URL!
+
+
+STEP 5: PUSH YOUR CODE TO GITHUB
+---------------------------------
+Open Command Prompt in your project folder and run these commands:
+
+# Initialize git
+git init
+
+# Add all files
+git add .
+
+# Create first commit
+git commit -m "Initial commit: Portfolio website"
+
+# Add GitHub remote (REPLACE YOUR_USERNAME with your actual GitHub username!)
+git remote add origin https://github.com/YOUR_USERNAME/lewis-portfolio-website.git
+
+# Push to GitHub
+git branch -M main
+git push -u origin main
+
+
+STEP 6: VERIFY
+--------------
+1. Go to your GitHub repository page
+2. Refresh the page
+3. You should see all your files!
+
+
+====================================================================
+IMPORTANT NOTES:
+====================================================================
+
+✅ Your .gitignore file is already configured
+✅ Sensitive files (.env) will NOT be uploaded
+✅ Example environment files have been created
+✅ README.md has been created for your repository
+
+====================================================================
+AFTER PUSHING TO GITHUB:
+====================================================================
+
+You can now deploy to Vercel:
+1. Go to: https://vercel.com
+2. Sign up with GitHub
+3. Click "New Project"
+4. Import your repository
+5. Click "Deploy"
+6. Your site will be live in 2-3 minutes!
+
+====================================================================
+NEED HELP?
+====================================================================
+
+Read these guides:
+- PUSH_TO_GITHUB_GUIDE.md (detailed instructions)
+- QUICK_DEPLOY_GUIDE.md (deployment instructions)
+- FREE_HOSTING_GUIDE.md (hosting options)
+
+====================================================================

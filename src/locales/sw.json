@@ -1,0 +1,224 @@
+{
+  "navigation": {
+    "home": "Nyumbani",
+    "about": "Kuhusu",
+    "projects": "Miradi",
+    "experience": "Uzoefu",
+    "contact": "Mawasiliano",
+    "admin": "Msimamizi"
+  },
+  "theme": {
+    "light": "Hali ya Mwanga",
+    "dark": "Hali ya Giza",
+    "toggle": "Badilisha Mandhari"
+  },
+  "language": {
+    "english": "Kiingereza",
+    "swahili": "Kiswahili",
+    "french": "Kifaransa",
+    "toggle": "Badilisha Lugha"
+  },
+  "common": {
+    "loading": "Inapakia...",
+    "error": "Hitilafu",
+    "success": "Mafanikio",
+    "submit": "Wasilisha",
+    "cancel": "Ghairi",
+    "save": "Hifadhi",
+    "delete": "Futa",
+    "edit": "Hariri",
+    "close": "Funga",
+    "back": "Rudi",
+    "next": "Ifuatayo",
+    "previous": "Iliyotangulia"
+  },
+  "home": {
+    "hero": {
+      "name": "Lewis Gathaiya",
+      "title": "Mtaalamu wa Usalama wa Mtandao na Mfanyakazi wa Mifumo ya Habari",
+      "description": "Nina shauku ya kulinda mifumo ya kidijitali na data kutoka kwa vitisho vya mtandaoni, na uzoefu wa vitendo katika ujanja wa kimaadili, usalama wa mtandao, na utengenezaji wa programu salama.",
+      "viewWork": "Ona Kazi Yangu",
+      "getInTouch": "Wasiliana Nami"
+    },
+    "about": {
+      "title": "Kuhusu Mimi",
+      "subtitle": "Wasifu wa Kitaaluma",
+      "description": "Mtaalamu wa Teknolojia ya Mifumo ya Habari aliyehamasishwa na aliye makini, akilenga sana usalama wa mtandao. Nina shauku ya kulinda mifumo ya kidijitali na data kutoka kwa vitisho vya mtandaoni, na uzoefu wa vitendo katika ujanja wa kimaadili, usalama wa mtandao, na utengenezaji wa programu salama.",
+      "coreSkills": "Ujuzi Muhimu",
+      "contactInfo": "Maelezo ya Mawasiliano",
+      "skills": {
+        "cybersecurity": "Utaalamu wa Usalama wa Mtandao",
+        "ethicalHacking": "Ujanja wa Kimaadili",
+        "networkSecurity": "Usalama wa Mtandao",
+        "problemSolving": "Kutatua Matatizo"
+      }
+    },
+    "experience": {
+      "title": "Uzoefu wa Kazi",
+      "subtitle": "Safari yangu ya kitaaluma na uzoefu wa kazi",
+      "roles": {
+        "ictIntern": {
+          "title": "Mfumo wa ICT",
+          "organization": "Wizara ya Ushirikiano",
+          "period": "Mei 2025 - Agosti 2025",
+          "description": "Nilitoa msaada wa kiufundi kwa wafanyakazi zaidi ya 50, nikifanya vizuri katika kutatua matatizo ya vifaa/programu, matengenezo ya mtandao, na masasisho ya mfumo."
+        },
+        "callCenter": {
+          "title": "Wakala wa Kituo cha Simu",
+          "organization": "CCI-Global",
+          "period": "Novemba 2025 - Sasa",
+          "description": "Nilishughulikia kwa ustadi maswali mengi ya wateja na wapelekaji kwa Glovo katika nchi sita za Afrika."
+        },
+        "volunteerTeacher": {
+          "title": "Mwalimu wa Kujitolea",
+          "organization": "Christ Victory Centre",
+          "period": "Septemba 2023 - Desemba 2023",
+          "description": "Nilifundisha Hisabati, Sayansi, na Kiingereza kwa wanafunzi, nikiendeleza ujuzi mkuu wa mawasiliano na kutatua matatizo."
+        }
+      }
+    },
+    "projects": {
+      "title": "Miradi Iliyoangaziwa",
+      "subtitle": "Angalia kazi yangu ya hivi karibuni",
+      "portfolio": {
+        "title": "Tovuti ya Portfolio",
+        "description": "Tovuti ya kisasa ya portfolio iliyojengwa na Next.js, TypeScript, na Tailwind CSS. Vipengele ni pamoja na hali ya giza, kimataifa, na dashibodi kamili ya msimamizi.",
+        "viewAll": "Ona Miradi Yote"
+      }
+    },
+    "contact": {
+      "title": "Wasiliana Nami",
+      "subtitle": "Hebu tufanye kazi pamoja kwenye mradi wako ujao",
+      "callMe": "Nipigie Simu",
+      "emailMe": "Nitumie Barua Pepe",
+      "sendMessage": "Au Nitumie Ujumbe"
+    },
+    "footer": {
+      "title": "Lewis Gathaiya",
+      "subtitle": "Mtaalamu wa Usalama wa Mtandao na Mfanyakazi wa Mifumo ya Habari",
+      "quickLinks": "Viungo vya Haraka",
+      "connect": "Unganisha",
+      "email": "Barua Pepe",
+      "phone": "Simu",
+      "copyright": "Haki zote zimehifadhiwa."
+    }
+  },
+  "about": {
+    "title": "Kuhusu Mimi",
+    "bio": "Mimi ni msanidi programu aliyejitolea na ujuzi wa teknolojia za wavuti za kisasa.",
+    "skills": "Ujuzi na Utaalamu",
+    "education": "Elimu",
+    "personalInfo": "Maelezo ya Kibinafsi",
+    "name": "Lewis Gathaiya",
+    "location": "Nairobi, Kenya",
+    "email": "gathaiyalewis1122@gmail.com",
+    "phone": "+254702320995",
+    "professionalProfile": "Wasifu wa Kitaaluma",
+    "professionalDescription": "Mtaalamu wa Teknolojia ya Mifumo ya Habari aliyehamasishwa na aliye makini, akilenga sana usalama wa mtandao. Nina shauku ya kulinda mifumo ya kidijitali na data kutoka kwa vitisho vya mtandaoni, na uzoefu wa vitendo katika ujanja wa kimaadili, usalama wa mtandao, na utengenezaji wa programu salama. Nimejitolea kujifunza mara kwa mara na kubadilika na mazingira yanayobadilika ya usalama wa mtandao. Ninaonyesha uwezo wa kipekee wa kutatua matatizo, kufikiri kwa makini, na ujuzi wa mawasiliano ambao husukuma matokeo ya miradi yenye mafanikio.",
+    "aboutMeTitle": "Kuhusu Mimi",
+    "aboutMeParagraph1": "Kama mtaalamu wa usalama wa mtandao aliyejitolea na mhitimu wa Mifumo ya Habari, ninaleta mchanganyiko wa kipekee wa utaalamu wa kiufundi na mawazo ya kimkakati kwa kila changamoto. Safari yangu katika teknolojia imeongozwa na shauku ya kulinda mazingira ya kidijitali na kuwezesha mashirika kustawi katika ulimwengu unaozidi kuunganishwa.",
+    "aboutMeParagraph2": "Na uzoefu uliodhibitishwa katika serikali, sekta binafsi, na huduma za jamii, ninafanya vizuri katika kutafsiri dhana ngumu za kiufundi kuwa suluhisho zinazoweza kutekelezwa ambazo huzilinda mali na kuongeza ufanisi wa uendeshaji.",
+    "coreCompetencies": "Ujuzi Muhimu",
+    "coreCompetenciesDescription": "Seti kamili ya ujuzi inayochanganya utaalamu wa kiufundi na uwezo muhimu wa kitaaluma",
+    "technicalSkills": "Ujuzi wa Kiufundi",
+    "professionalSkills": "Ujuzi wa Kitaaluma",
+    "professionalExperience": "Uzoefu wa Kitaaluma",
+    "professionalExperienceDescription": "Rekodi iliyothibitishwa ya ubora katika majukumu na viwanda mbalimbali",
+    "educationCertifications": "Elimu na Vyeti",
+    "educationCertificationsDescription": "Msingi imara wa kitaaluma unaojumuishwa na vyeti vinavyotambuliwa na tasnia",
+    "criticalThinking": "Kufikiri kwa Makini",
+    "digitalMarketing": "Uuzaji wa Kidijitali",
+    "communicationSkills": "Ujuzi wa Mawasiliano",
+    "informationSystems": "Mifumo ya Habari",
+    "workExperience": {
+      "ictIntern": "Nilitoa msaada wa kiufundi kwa wafanyakazi zaidi ya 50, nikifanya vizuri katika kutatua matatizo ya vifaa/programu, matengenezo ya mtandao, na masasisho ya mfumo.",
+      "callCenter": "Nilishughulikia kwa ustadi maswali mengi ya wateja na wapelekaji kwa Glovo katika nchi sita za Afrika.",
+      "volunteerTeacher": "Nilifundisha Hisabati, Sayansi, na Kiingereza kwa wanafunzi, nikiendeleza ujuzi mkuu wa mawasiliano na kutatua matatizo."
+    },
+    "education": {
+      "university": {
+        "title": "Shahada ya Sayansi katika Mifumo ya Habari na Teknolojia",
+        "organization": "United States International University",
+        "period": "Sep 2021 - Sep 2025",
+        "description": "Nimehitimu na uelewa kamili wa mifumo ya habari, usalama wa mtandao, na usimamizi wa teknolojia."
+      },
+      "ethicalHacking": {
+        "title": "Ujanja wa Kimaadili wa Kati",
+        "organization": "Cisco Networking Academy",
+        "period": "Oct 2025 - Des 2025",
+        "description": "Cheti cha juu katika mbinu za ujanja wa kimaadili, upimaji wa kupenya, na tathmini ya usalama."
+      },
+      "digitalMarketing": {
+        "title": "Cheti cha Uuzaji wa Kidijitali",
+        "organization": "Hubspot Academy",
+        "period": "Sep 2025 - Nov 2025",
+        "description": "Cheti kamili kinachoshughulikia mikakati ya kisasa ya uuzaji wa kidijitali, SEO, uuzaji wa maudhui, na uchanganuzi."
+      },
+      "icdl": {
+        "title": "Cheti cha ICDL",
+        "organization": "JKUAT",
+        "period": "Mei 2021 - Agosti 2021",
+        "description": "Cheti cha Leseni ya Kuendesha Kompyuta Kimataifa kinachoshughulikia ujuzi muhimu wa kompyuta."
+      },
+      "highSchool": {
+        "title": "Cheti cha Shule ya Sekondari",
+        "organization": "Pioneer School",
+        "period": "Jan 2017 - Apr 2021",
+        "description": "Nimekamilisha elimu ya sekondari na utendaji imara katika sayansi na hisabati."
+      }
+    }
+  },
+  "projects": {
+    "title": "Miradi Yangu",
+    "viewProject": "Ona Mradi",
+    "viewCode": "Ona Msimbo",
+    "technologies": "Teknolojia Zilizotumika"
+  },
+  "experience": {
+    "title": "Uzoefu wa Kazi",
+    "current": "Sasa Hivi",
+    "duration": "Muda",
+    "description": "Safari yangu ya kitaaluma",
+    "workHistory": "Historia ya Kazi",
+    "vertical": "Wima",
+    "horizontal": "Mlalo",
+    "interactiveTimeline": "Ratiba ya Mwingiliano",
+    "switchViews": "Badilisha kati ya mitazamo ya wima na mlalo ili kuchunguza uzoefu wangu wa kazi katika muundo tofauti."
+  },
+  "contact": {
+    "title": "Wasiliana Nami",
+    "subtitle": "Hebu tufanye kazi pamoja",
+    "name": "Jina",
+    "email": "Barua Pepe",
+    "message": "Ujumbe",
+    "send": "Tuma Ujumbe",
+    "sending": "Inatuma...",
+    "success": "Ujumbe umetumwa!",
+    "error": "Imeshindwa kutuma.",
+    "callMe": "Nipigie Simu",
+    "emailMe": "Nitumie Barua Pepe",
+    "phone": "+254702320995",
+    "validation": {
+      "nameRequired": "Jina linahitajika",
+      "nameMinLength": "Jina lazima liwe na angalau herufi 2",
+      "nameMaxLength": "Jina lazima liwe na herufi chini ya 100",
+      "emailRequired": "Barua pepe inahitajika",
+      "emailInvalid": "Tafadhali ingiza anwani sahihi ya barua pepe",
+      "messageRequired": "Ujumbe unahitajika",
+      "messageMinLength": "Ujumbe lazima uwe na angalau herufi 10",
+      "messageMaxLength": "Ujumbe lazima uwe na herufi chini ya 1000"
+    },
+    "placeholders": {
+      "name": "Ingiza jina lako kamili",
+      "email": "Ingiza anwani yako ya barua pepe",
+      "message": "Niambie kuhusu mradi wako..."
+    }
+  },
+  "admin": {
+    "title": "Dashibodi ya Msimamizi",
+    "login": "Ingia",
+    "logout": "Toka",
+    "contacts": "Ujumbe wa Mawasiliano",
+    "noMessages": "Hakuna ujumbe"
+  }
+}

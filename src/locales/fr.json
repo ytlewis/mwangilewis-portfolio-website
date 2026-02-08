@@ -1,0 +1,224 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "theme": {
+    "light": "Mode Clair",
+    "dark": "Mode Sombre",
+    "toggle": "Changer le Thème"
+  },
+  "language": {
+    "english": "Anglais",
+    "swahili": "Swahili",
+    "french": "Français",
+    "toggle": "Changer la Langue"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent"
+  },
+  "home": {
+    "hero": {
+      "name": "Lewis Gathaiya",
+      "title": "Professionnel de la Cybersécurité et Spécialiste des Systèmes d'Information",
+      "description": "Passionné par la protection des systèmes numériques et des données contre les cybermenaces, avec une expérience pratique en piratage éthique, sécurité réseau et développement logiciel sécurisé.",
+      "viewWork": "Voir Mon Travail",
+      "getInTouch": "Me Contacter"
+    },
+    "about": {
+      "title": "À Propos de Moi",
+      "subtitle": "Profil Professionnel",
+      "description": "Un professionnel de la technologie des systèmes d'information motivé et soucieux du détail, avec un fort accent sur la cybersécurité. Passionné par la protection des systèmes numériques et des données contre les cybermenaces, avec une expérience pratique en piratage éthique, sécurité réseau et développement logiciel sécurisé.",
+      "coreSkills": "Compétences Principales",
+      "contactInfo": "Informations de Contact",
+      "skills": {
+        "cybersecurity": "Expertise en Cybersécurité",
+        "ethicalHacking": "Piratage Éthique",
+        "networkSecurity": "Sécurité Réseau",
+        "problemSolving": "Résolution de Problèmes"
+      }
+    },
+    "experience": {
+      "title": "Expérience Professionnelle",
+      "subtitle": "Mon parcours professionnel et expérience de travail",
+      "roles": {
+        "ictIntern": {
+          "title": "Stagiaire TIC",
+          "organization": "Ministère des Coopératives",
+          "period": "Mai 2025 - Août 2025",
+          "description": "Fourni un support technique complet à plus de 50 membres du personnel, excellant dans le dépannage matériel/logiciel, la maintenance réseau et les mises à jour système."
+        },
+        "callCenter": {
+          "title": "Agent de Centre d'Appels",
+          "organization": "CCI-Global",
+          "period": "Nov 2025 - Présent",
+          "description": "Géré avec expertise les demandes de clients et de coursiers à volume élevé pour Glovo dans six pays africains."
+        },
+        "volunteerTeacher": {
+          "title": "Enseignant Bénévole",
+          "organization": "Christ Victory Centre",
+          "period": "Sep 2023 - Déc 2023",
+          "description": "Enseigné les mathématiques, les sciences et l'anglais aux étudiants, développant de solides compétences en communication et résolution de problèmes."
+        }
+      }
+    },
+    "projects": {
+      "title": "Projets en Vedette",
+      "subtitle": "Découvrez mon dernier travail",
+      "portfolio": {
+        "title": "Site Web Portfolio",
+        "description": "Un site web portfolio moderne et réactif construit avec Next.js, TypeScript et Tailwind CSS. Les fonctionnalités incluent le mode sombre, l'internationalisation et un tableau de bord administrateur complet.",
+        "viewAll": "Voir Tous les Projets"
+      }
+    },
+    "contact": {
+      "title": "Me Contacter",
+      "subtitle": "Travaillons ensemble sur votre prochain projet",
+      "callMe": "M'Appeler",
+      "emailMe": "M'Envoyer un Email",
+      "sendMessage": "Ou Envoyez-moi un Message"
+    },
+    "footer": {
+      "title": "Lewis Gathaiya",
+      "subtitle": "Professionnel de la Cybersécurité et Spécialiste des Systèmes d'Information",
+      "quickLinks": "Liens Rapides",
+      "connect": "Connecter",
+      "email": "Email",
+      "phone": "Téléphone",
+      "copyright": "Tous droits réservés."
+    }
+  },
+  "about": {
+    "title": "À Propos de Moi",
+    "bio": "Je suis un développeur full-stack dévoué avec une expertise dans les technologies web modernes.",
+    "skills": "Compétences et Expertise",
+    "education": "Éducation",
+    "personalInfo": "Informations Personnelles",
+    "name": "Lewis Gathaiya",
+    "location": "Nairobi, Kenya",
+    "email": "gathaiyalewis1122@gmail.com",
+    "phone": "+254702320995",
+    "professionalProfile": "Profil Professionnel",
+    "professionalDescription": "Un professionnel de la technologie des systèmes d'information motivé et soucieux du détail, avec un fort accent sur la cybersécurité. Passionné par la protection des systèmes numériques et des données contre les cybermenaces, avec une expérience pratique en piratage éthique, sécurité réseau et développement logiciel sécurisé. Engagé dans l'apprentissage continu et l'adaptation au paysage évolutif de la cybersécurité. Démontre des capacités exceptionnelles de résolution de problèmes, de pensée critique et de communication qui favorisent le succès des projets.",
+    "aboutMeTitle": "À Propos de Moi",
+    "aboutMeParagraph1": "En tant que professionnel de la cybersécurité dévoué et diplômé en systèmes d'information, j'apporte un mélange unique d'expertise technique et de réflexion stratégique à chaque défi. Mon parcours dans la technologie a été motivé par une passion pour la sécurisation des environnements numériques et l'autonomisation des organisations pour prospérer dans un monde de plus en plus connecté.",
+    "aboutMeParagraph2": "Avec une expérience éprouvée dans le gouvernement, le secteur privé et le service communautaire, j'excelle dans la traduction de concepts techniques complexes en solutions concrètes qui protègent les actifs et améliorent l'efficacité opérationnelle.",
+    "coreCompetencies": "Compétences Principales",
+    "coreCompetenciesDescription": "Un ensemble de compétences complet combinant expertise technique et capacités professionnelles essentielles",
+    "technicalSkills": "Compétences Techniques",
+    "professionalSkills": "Compétences Professionnelles",
+    "professionalExperience": "Expérience Professionnelle",
+    "professionalExperienceDescription": "Bilan éprouvé d'excellence dans divers rôles et industries",
+    "educationCertifications": "Éducation et Certifications",
+    "educationCertificationsDescription": "Une base académique solide complétée par des certifications reconnues par l'industrie",
+    "criticalThinking": "Pensée Critique",
+    "digitalMarketing": "Marketing Numérique",
+    "communicationSkills": "Compétences en Communication",
+    "informationSystems": "Systèmes d'Information",
+    "workExperience": {
+      "ictIntern": "Fourni un support technique complet à plus de 50 membres du personnel, excellant dans le dépannage matériel/logiciel, la maintenance réseau et les mises à jour système. Amélioration réussie des performances du système et formation efficace des utilisateurs finaux.",
+      "callCenter": "Géré avec expertise les demandes de clients et de coursiers à volume élevé pour Glovo dans six pays africains. Démontré des compétences exceptionnelles en communication en résolvant des problèmes de livraison complexes.",
+      "volunteerTeacher": "Enseigné les mathématiques, les sciences et l'anglais aux étudiants, développant de solides compétences en communication, résolution de problèmes et organisation."
+    },
+    "education": {
+      "university": {
+        "title": "Licence en Systèmes et Technologie de l'Information",
+        "organization": "United States International University",
+        "period": "Sep 2021 - Sep 2025",
+        "description": "Diplômé avec une compréhension complète des systèmes d'information, de la cybersécurité et de la gestion technologique."
+      },
+      "ethicalHacking": {
+        "title": "Piratage Éthique Intermédiaire",
+        "organization": "Cisco Networking Academy",
+        "period": "Oct 2025 - Déc 2025",
+        "description": "Certification avancée en techniques de piratage éthique, tests de pénétration et évaluation de sécurité."
+      },
+      "digitalMarketing": {
+        "title": "Certificat en Marketing Numérique",
+        "organization": "Hubspot Academy",
+        "period": "Sep 2025 - Nov 2025",
+        "description": "Certification complète couvrant les stratégies modernes de marketing numérique, SEO, marketing de contenu et analytique."
+      },
+      "icdl": {
+        "title": "Certificat ICDL",
+        "organization": "JKUAT",
+        "period": "Mai 2021 - Août 2021",
+        "description": "Certification du permis de conduire informatique international couvrant les compétences informatiques essentielles."
+      },
+      "highSchool": {
+        "title": "Certificat d'Études Secondaires",
+        "organization": "Pioneer School",
+        "period": "Jan 2017 - Avr 2021",
+        "description": "Terminé l'enseignement secondaire avec de solides performances en sciences et mathématiques."
+      }
+    }
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "viewProject": "Voir le Projet",
+    "viewCode": "Voir le Code",
+    "technologies": "Technologies Utilisées"
+  },
+  "experience": {
+    "title": "Expérience Professionnelle",
+    "current": "Actuel",
+    "duration": "Durée",
+    "description": "Mon parcours professionnel",
+    "workHistory": "Historique de Travail",
+    "vertical": "Vertical",
+    "horizontal": "Horizontal",
+    "interactiveTimeline": "Chronologie Interactive",
+    "switchViews": "Basculez entre les vues verticale et horizontale pour explorer mon expérience professionnelle dans différents formats."
+  },
+  "contact": {
+    "title": "Me Contacter",
+    "subtitle": "Travaillons ensemble",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer le Message",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé!",
+    "error": "Échec de l'envoi.",
+    "callMe": "M'Appeler",
+    "emailMe": "M'Envoyer un Email",
+    "phone": "+254702320995",
+    "validation": {
+      "nameRequired": "Le nom est requis",
+      "nameMinLength": "Le nom doit contenir au moins 2 caractères",
+      "nameMaxLength": "Le nom doit contenir moins de 100 caractères",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Veuillez entrer une adresse email valide",
+      "messageRequired": "Le message est requis",
+      "messageMinLength": "Le message doit contenir au moins 10 caractères",
+      "messageMaxLength": "Le message doit contenir moins de 1000 caractères"
+    },
+    "placeholders": {
+      "name": "Entrez votre nom complet",
+      "email": "Entrez votre adresse email",
+      "message": "Parlez-moi de votre projet..."
+    }
+  },
+  "admin": {
+    "title": "Tableau de Bord Admin",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "contacts": "Messages de Contact",
+    "noMessages": "Aucun message"
+  }
+}
