@@ -11,6 +11,7 @@ interface AnimatedButtonProps {
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -21,6 +22,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   size = 'md',
   disabled = false,
   className = '',
+  style = {},
 }) => {
   const buttonRef = useButtonAnimation<HTMLButtonElement>();
 
@@ -50,6 +52,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       style={{
         transformOrigin: 'center center',
         backfaceVisibility: 'hidden',
+        ...style,
       }}
     >
       {children}

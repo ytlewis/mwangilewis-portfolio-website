@@ -249,11 +249,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, className = '' }) =
             variant="primary"
             size="lg"
             disabled={isSubmitting || isSuccess}
-            className={`min-w-[200px] transition-all duration-300 ${
-              isSuccess 
-                ? 'bg-green-600 hover:bg-green-600 cursor-default' 
-                : ''
-            }`}
+            className={`min-w-[200px] transition-all duration-300`}
+            style={{
+              backgroundColor: isSuccess ? '#16a34a' : undefined,
+              borderColor: isSuccess ? '#16a34a' : undefined,
+            }}
           >
             {isSuccess ? (
               <span className="flex items-center justify-center">
