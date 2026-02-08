@@ -8,7 +8,7 @@ import { generatePersonSchema, generateWebSiteSchema } from '@/lib/seo'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mwangilewis.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app'),
   title: {
     default: 'Lewis Gathaiya - Full-Stack Developer Portfolio',
     template: '%s | Lewis Gathaiya',
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: 'https://mwangilewis.com',
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app',
     languages: {
-      'en': 'https://mwangilewis.com',
-      'sw': 'https://mwangilewis.com?lang=sw',
-      'es': 'https://mwangilewis.com?lang=es',
+      'en': process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app',
+      'sw': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app'}?lang=sw`,
+      'es': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app'}?lang=es`,
     },
   },
   openGraph: {
     title: 'Lewis Gathaiya - Full-Stack Developer Portfolio',
     description: 'Full-stack developer specializing in React, Next.js, Node.js, and modern web technologies',
-    url: 'https://mwangilewis.com',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app',
     siteName: 'Lewis Gathaiya Portfolio',
     locale: 'en_US',
     type: 'website',
@@ -112,7 +112,7 @@ export default function RootLayout({
       <head>
         <StructuredData data={personSchema} />
         <StructuredData data={websiteSchema} />
-        <link rel="canonical" href="https://mwangilewis.com" />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app'} />
       </head>
       <body className={inter.className} suppressHydrationWarning>
         <ClientLayout>
