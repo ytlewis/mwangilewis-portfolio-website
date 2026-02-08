@@ -206,6 +206,7 @@
     "email": "Email",
     "message": "Message",
     "send": "Send Message",
+    "sent": "Sent!",
     "sending": "Sending...",
     "success": "Message sent successfully!",
     "error": "Failed to send message. Please try again.",

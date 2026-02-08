@@ -192,6 +192,7 @@
     "email": "Email",
     "message": "Message",
     "send": "Envoyer le Message",
+    "sent": "Envoyé!",
     "sending": "Envoi en cours...",
     "success": "Message envoyé!",
     "error": "Échec de l'envoi.",

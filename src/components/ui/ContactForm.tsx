@@ -37,6 +37,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, className = '' }) =
   
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   // Validation functions
   const validateName = (name: string): string | undefined => {
@@ -130,10 +131,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, className = '' }) =
       // Success
       showSuccess(t('contact.success'));
       setFormData({ name: '', email: '', message: '' });
+      setIsSuccess(true);
+      
+      // Reset success state after 3 seconds
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 3000);
 
     } catch (error) {
       console.error('Contact form error:', error);
       showError(error instanceof Error ? error.message : t('contact.error'));
+      setIsSuccess(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -240,10 +248,25 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, className = '' }) =
             type="submit"
             variant="primary"
             size="lg"
-            disabled={isSubmitting}
-            className="min-w-[200px]"
+            disabled={isSubmitting || isSuccess}
+            className={`min-w-[200px] transition-all duration-300 ${
+              isSuccess 
+                ? 'bg-green-600 hover:bg-green-600 cursor-default' 
+                : ''
+            }`}
           >
-            {isSubmitting ? t('contact.sending') : t('contact.send')}
+            {isSuccess ? (
+              <span className="flex items-center justify-center">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {t('contact.sent') || 'Sent!'}
+              </span>
+            ) : isSubmitting ? (
+              t('contact.sending')
+            ) : (
+              t('contact.send')
+            )}
           </AnimatedButton>
         </div>
       </form>
