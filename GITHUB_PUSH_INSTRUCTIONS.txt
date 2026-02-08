@@ -1,0 +1,49 @@
+GITHUB PUSH INSTRUCTIONS
+========================
+
+STEP 1: Create GitHub Repository
+---------------------------------
+1. Go to: https://github.com/new
+2. Repository name: lewis-portfolio (or your choice)
+3. Make it PUBLIC
+4. DO NOT check any boxes (no README, no .gitignore, no license)
+5. Click "Create repository"
+
+STEP 2: Get Your Repository URL
+--------------------------------
+After creating, GitHub will show you a URL like:
+https://github.com/YOUR_USERNAME/lewis-portfolio.git
+
+Copy this URL!
+
+STEP 3: Run These Commands
+---------------------------
+Replace YOUR_USERNAME with your actual GitHub username:
+
+git remote add origin https://github.com/YOUR_USERNAME/lewis-portfolio.git
+git push -u origin master
+
+EXAMPLE:
+If your username is "lewisgathaiya", run:
+git remote add origin https://github.com/lewisgathaiya/lewis-portfolio.git
+git push -u origin master
+
+AUTHENTICATION:
+---------------
+If asked for username and password:
+- Username: Your GitHub username
+- Password: Use a Personal Access Token (NOT your GitHub password)
+
+To get a token:
+1. Go to: https://github.com/settings/tokens
+2. Click "Generate new token (classic)"
+3. Name: "Portfolio Push"
+4. Check "repo" scope
+5. Generate and copy the token
+6. Use this token as your password
+
+WHAT TO DO NOW:
+---------------
+1. Tell me your GitHub username
+2. Tell me what you want to name the repository
+3. I'll run the commands for you!

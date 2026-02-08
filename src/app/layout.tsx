@@ -8,7 +8,7 @@ import { generatePersonSchema, generateWebSiteSchema } from '@/lib/seo'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app'),
+  metadataBase: new URL('https://lewis-portfolio-website.vercel.app'),
   title: {
     default: 'Lewis Gathaiya - Full-Stack Developer Portfolio',
     template: '%s | Lewis Gathaiya',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     'Nairobi',
     'Kenya',
   ],
-  authors: [{ name: 'Lewis Gathaiya', url: 'https://mwangilewis.com' }],
+  authors: [{ name: 'Lewis Gathaiya', url: 'https://lewis-portfolio-website.vercel.app' }],
   creator: 'Lewis Gathaiya',
   publisher: 'Lewis Gathaiya',
   formatDetection: {
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app',
+    canonical: 'https://lewis-portfolio-website.vercel.app',
     languages: {
-      'en': process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app',
-      'sw': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app'}?lang=sw`,
-      'es': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app'}?lang=es`,
+      'en': 'https://lewis-portfolio-website.vercel.app',
+      'sw': 'https://lewis-portfolio-website.vercel.app?lang=sw',
+      'es': 'https://lewis-portfolio-website.vercel.app?lang=es',
     },
   },
   openGraph: {
     title: 'Lewis Gathaiya - Full-Stack Developer Portfolio',
     description: 'Full-stack developer specializing in React, Next.js, Node.js, and modern web technologies',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app',
+    url: 'https://lewis-portfolio-website.vercel.app',
     siteName: 'Lewis Gathaiya Portfolio',
     locale: 'en_US',
     type: 'website',
@@ -83,7 +83,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'your-google-verification-code',
-    // Add other verification codes as needed
   },
   category: 'technology',
 }
@@ -112,7 +111,6 @@ export default function RootLayout({
       <head>
         <StructuredData data={personSchema} />
         <StructuredData data={websiteSchema} />
-        <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL || 'https://lewis-portfolio-website.vercel.app'} />
       </head>
       <body className={inter.className} suppressHydrationWarning>
         <ClientLayout>
