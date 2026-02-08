@@ -8,7 +8,7 @@ import { generatePersonSchema, generateWebSiteSchema } from '@/lib/seo'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lewis-portfolio-website.vercel.app'),
+  metadataBase: new URL('https://www.lewismwangi.com'),
   title: {
     default: 'Lewis Gathaiya - Full-Stack Developer Portfolio',
     template: '%s | Lewis Gathaiya',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     'Nairobi',
     'Kenya',
   ],
-  authors: [{ name: 'Lewis Gathaiya', url: 'https://lewis-portfolio-website.vercel.app' }],
+  authors: [{ name: 'Lewis Gathaiya', url: 'https://www.lewismwangi.com' }],
   creator: 'Lewis Gathaiya',
   publisher: 'Lewis Gathaiya',
   formatDetection: {
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: 'https://lewis-portfolio-website.vercel.app',
+    canonical: 'https://www.lewismwangi.com',
     languages: {
-      'en': 'https://lewis-portfolio-website.vercel.app',
-      'sw': 'https://lewis-portfolio-website.vercel.app?lang=sw',
-      'es': 'https://lewis-portfolio-website.vercel.app?lang=es',
+      'en': 'https://www.lewismwangi.com',
+      'sw': 'https://www.lewismwangi.com?lang=sw',
+      'es': 'https://www.lewismwangi.com?lang=es',
     },
   },
   openGraph: {
     title: 'Lewis Gathaiya - Full-Stack Developer Portfolio',
     description: 'Full-stack developer specializing in React, Next.js, Node.js, and modern web technologies',
-    url: 'https://lewis-portfolio-website.vercel.app',
+    url: 'https://www.lewismwangi.com',
     siteName: 'Lewis Gathaiya Portfolio',
     locale: 'en_US',
     type: 'website',
