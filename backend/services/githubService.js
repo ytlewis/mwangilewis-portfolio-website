@@ -9,7 +9,7 @@ class GitHubService {
     this.cache = new Map();
     this.cacheTimeout = 30 * 60 * 1000; // 30 minutes cache timeout
     this.apiBaseUrl = 'https://api.github.com';
-    this.username = process.env.GITHUB_USERNAME || 'lewisgathaiya'; // Lewis's GitHub username
+    this.username = process.env.GITHUB_USERNAME || 'ytlewis'; // Lewis's GitHub username
     this.fallbackData = this.getFallbackData();
   }
 
@@ -207,7 +207,7 @@ class GitHubService {
         id: 1,
         name: 'PHARMUP',
         description: 'A comprehensive pharmaceutical management system built with modern web technologies. Features inventory management, prescription tracking, and sales analytics.',
-        html_url: 'https://github.com/lewisgathaiya/pharmup',
+        html_url: 'https://github.com/ytlewis/pharmup',
         language: 'JavaScript',
         stargazers_count: 5,
         updated_at: new Date().toISOString(),
@@ -218,7 +218,7 @@ class GitHubService {
         id: 2,
         name: 'SECULEARN',
         description: 'An innovative security learning platform for cybersecurity education. Interactive lessons, hands-on labs, and real-world scenarios.',
-        html_url: 'https://github.com/lewisgathaiya/seculearn',
+        html_url: 'https://github.com/ytlewis/seculearn',
         language: 'Python',
         stargazers_count: 3,
         updated_at: new Date().toISOString(),
@@ -229,7 +229,7 @@ class GitHubService {
         id: 3,
         name: 'Portfolio Website',
         description: 'Modern portfolio website with animated backgrounds, multilingual support, and admin dashboard. Built with Next.js, React, and MongoDB.',
-        html_url: 'https://github.com/lewisgathaiya/lewis-portfolio-website',
+        html_url: 'https://github.com/ytlewis/lewis-portfolio-website',
         language: 'TypeScript',
         stargazers_count: 2,
         updated_at: new Date().toISOString(),
@@ -240,7 +240,7 @@ class GitHubService {
         id: 4,
         name: 'Area Calculator',
         description: 'Simple geometric area calculator application. Calculate areas of various shapes with an intuitive interface.',
-        html_url: 'https://github.com/lewisgathaiya/area-calculator',
+        html_url: 'https://github.com/ytlewis/area-calculator',
         language: 'JavaScript',
         stargazers_count: 0,
         updated_at: new Date().toISOString(),

@@ -78,7 +78,7 @@ JWT_EXPIRES_IN=24h
 PORT=5000
 NODE_ENV=production
 FRONTEND_URL=https://lewismwangi.com
-GITHUB_USERNAME=lewisgathaiya
+GITHUB_USERNAME=ytlewis
 EMAIL_SERVICE=gmail
 EMAIL_USER=gathaiyalewis1122@gmail.com
 EMAIL_PASS=$emailPassword
@@ -205,3 +205,4 @@ Write-Host ""
 
 Write-Host "Press any key to exit..." -ForegroundColor Gray
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+

@@ -81,7 +81,7 @@ JWT_EXPIRES_IN=24h
 PORT=5000
 NODE_ENV=production
 FRONTEND_URL=https://lewismwangi.com
-GITHUB_USERNAME=lewisgathaiya
+GITHUB_USERNAME=ytlewis
 EMAIL_SERVICE=gmail
 EMAIL_USER=gathaiyalewis1122@gmail.com
 EMAIL_PASS=[your-gmail-app-password]
@@ -204,3 +204,4 @@ The issues are fixable and I've provided all the tools you need:
 - ✅ Troubleshooting help
 
 **Next Action**: Run `.\deploy-backend-render-now.ps1` to fix everything automatically.
+

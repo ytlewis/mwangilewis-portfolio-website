@@ -32,7 +32,7 @@ Copy the URL (it will look like):
 In your backend hosting platform, add/update these variables:
 
 ```env
-GITHUB_USERNAME=lewisgathaiya
+GITHUB_USERNAME=ytlewis
 EMAIL_SERVICE=gmail
 EMAIL_USER=gathaiyalewis1122@gmail.com
 EMAIL_PASS=[get from https://myaccount.google.com/apppasswords]
@@ -66,7 +66,7 @@ vercel --prod
 Open `backend/.env` and update:
 
 ```env
-GITHUB_USERNAME=lewisgathaiya
+GITHUB_USERNAME=ytlewis
 EMAIL_SERVICE=gmail
 EMAIL_USER=gathaiyalewis1122@gmail.com
 EMAIL_PASS=[your-gmail-app-password]
@@ -120,7 +120,7 @@ vercel --prod
    PORT=5000
    NODE_ENV=production
    FRONTEND_URL=https://lewismwangi.com
-   GITHUB_USERNAME=lewisgathaiya
+   GITHUB_USERNAME=ytlewis
    EMAIL_SERVICE=gmail
    EMAIL_USER=gathaiyalewis1122@gmail.com
    EMAIL_PASS=[your-gmail-app-password]
@@ -164,7 +164,7 @@ vercel --prod
 - Check browser console for errors (F12)
 - Verify backend URL is correct in Vercel
 - Check backend logs for errors
-- Make sure `GITHUB_USERNAME=lewisgathaiya` is set
+- Make sure `GITHUB_USERNAME=ytlewis` is set
 
 ### Email Still Not Working?
 - Verify Gmail App Password is correct (16 characters, no spaces)
@@ -218,3 +218,4 @@ See Option C above
 ---
 
 **Priority**: Fix backend deployment first, then email will work automatically.
+
