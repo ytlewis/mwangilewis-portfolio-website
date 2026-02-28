@@ -49,10 +49,24 @@ export default function Projects() {
       const githubResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`);
       
       if (!githubResponse.ok) {
+        // Check if it's a rate limit error
+        if (githubResponse.status === 403) {
+          const rateLimitData = await githubResponse.json();
+          if (rateLimitData.message && rateLimitData.message.includes('rate limit')) {
+            console.warn('GitHub API rate limit exceeded, using fallback data');
+            throw new Error('RATE_LIMIT');
+          }
+        }
         throw new Error(`GitHub API returned status ${githubResponse.status}`);
       }
 
       const githubRepos = await githubResponse.json();
+      
+      // Check if response is an error object
+      if (githubRepos.message && githubRepos.message.includes('rate limit')) {
+        console.warn('GitHub API rate limit exceeded, using fallback data');
+        throw new Error('RATE_LIMIT');
+      }
       
       // Filter and format repos
       const formattedRepos = githubRepos
@@ -74,13 +88,19 @@ export default function Projects() {
       setFilteredProjects(formattedRepos);
     } catch (err) {
       console.error('Error fetching projects:', err);
-      setError('Failed to load projects. Please try again later.');
       
-      // Set fallback data if available
+      // Set appropriate error message
+      if (err instanceof Error && err.message === 'RATE_LIMIT') {
+        setError('GitHub API rate limit reached. Showing featured projects.');
+      } else {
+        setError('Unable to load live GitHub data. Showing featured projects.');
+      }
+      
+      // Set fallback data with your featured projects
       const fallbackProjects: GitHubRepo[] = [
         {
           id: 1,
-          name: 'PHARMUP',
+          name: 'pharmup',
           description: 'A comprehensive pharmaceutical management system built with modern web technologies',
           html_url: 'https://github.com/ytlewis/pharmup',
           language: 'JavaScript',
@@ -91,7 +111,7 @@ export default function Projects() {
         },
         {
           id: 2,
-          name: 'SECULEARN',
+          name: 'seculearn',
           description: 'An innovative security learning platform for cybersecurity education',
           html_url: 'https://github.com/ytlewis/seculearn',
           language: 'Python',
@@ -102,9 +122,9 @@ export default function Projects() {
         },
         {
           id: 3,
-          name: 'lewis-portfolio-website',
+          name: 'mwangilewis-portfolio-website',
           description: 'Modern portfolio website with animated backgrounds and multilingual support',
-          html_url: 'https://github.com/ytlewis/lewis-portfolio-website',
+          html_url: 'https://github.com/ytlewis/mwangilewis-portfolio-website',
           language: 'TypeScript',
           stargazers_count: 0,
           updated_at: new Date().toISOString(),
