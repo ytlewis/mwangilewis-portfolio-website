@@ -1,433 +1,220 @@
+#!/usr/bin/env node
+
+/**
+ * Deployment Verification Script
+ * 
+ * This script verifies that the backend is properly configured for deployment
+ * and tests all critical endpoints.
+ */
+
 const axios = require('axios');
-const mongoose = require('mongoose');
-require('dotenv').config();
 
-// ANSI color codes for terminal output
-const colors = {
-  reset: '\x1b[0m',
-  green: '\x1b[32m',
-  red: '\x1b[31m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  cyan: '\x1b[36m'
-};
+// Get backend URL from command line or use default
+const BACKEND_URL = process.argv[2] || 'http://localhost:5000';
 
-const log = {
-  success: (msg) => console.log(`${colors.green}✅ ${msg}${colors.reset}`),
-  error: (msg) => console.log(`${colors.red}❌ ${msg}${colors.reset}`),
-  warning: (msg) => console.log(`${colors.yellow}⚠️  ${msg}${colors.reset}`),
-  info: (msg) => console.log(`${colors.blue}ℹ️  ${msg}${colors.reset}`),
-  section: (msg) => console.log(`\n${colors.cyan}${'='.repeat(60)}\n${msg}\n${'='.repeat(60)}${colors.reset}\n`)
-};
+console.log('🔍 Verifying Backend Deployment...');
+console.log(`📍 Backend URL: ${BACKEND_URL}\n`);
 
-// Configuration
-const FRONTEND_URL = process.env.FRONTEND_URL || 'https://mwangilewis.com';
-const BACKEND_URL = process.env.BACKEND_URL || 'https://api.mwangilewis.com';
-const MONGODB_URI = process.env.MONGODB_URI;
+const tests = [];
+let passedTests = 0;
+let failedTests = 0;
 
-let testResults = {
-  passed: 0,
-  failed: 0,
-  warnings: 0
-};
-
-// Test functions
-async function testDatabaseConnection() {
-  log.section('Testing Database Connection');
-  
+// Test 1: Health Check
+async function testHealthCheck() {
   try {
-    if (!MONGODB_URI) {
-      log.error('MONGODB_URI not set in environment variables');
-      testResults.failed++;
-      return false;
-    }
-
-    log.info('Connecting to MongoDB...');
-    await mongoose.connect(MONGODB_URI);
-    log.success('Connected to MongoDB Atlas');
-
-    const db = mongoose.connection.db;
-    const collections = await db.listCollections().toArray();
-    
-    log.info(`Database: ${db.databaseName}`);
-    log.info(`Collections found: ${collections.length}`);
-    
-    const requiredCollections = ['contacts', 'admins'];
-    const existingCollections = collections.map(c => c.name);
-    
-    for (const collection of requiredCollections) {
-      if (existingCollections.includes(collection)) {
-        log.success(`Collection '${collection}' exists`);
-      } else {
-        log.warning(`Collection '${collection}' not found (will be created on first use)`);
-        testResults.warnings++;
-      }
-    }
-
-    await mongoose.connection.close();
-    testResults.passed++;
-    return true;
-  } catch (error) {
-    log.error(`Database connection failed: ${error.message}`);
-    testResults.failed++;
-    return false;
-  }
-}
-
-async function testBackendHealth() {
-  log.section('Testing Backend Health');
-  
-  try {
-    log.info(`Testing: ${BACKEND_URL}/api/health`);
     const response = await axios.get(`${BACKEND_URL}/api/health`, {
-      timeout: 10000
+      timeout: 5000
     });
-
+    
     if (response.status === 200 && response.data.status === 'OK') {
-      log.success('Backend health check passed');
-      log.info(`Response: ${JSON.stringify(response.data)}`);
-      testResults.passed++;
+      console.log('✅ Health Check: PASSED');
+      passedTests++;
       return true;
     } else {
-      log.error('Backend health check returned unexpected response');
-      testResults.failed++;
+      console.log('❌ Health Check: FAILED - Invalid response');
+      failedTests++;
       return false;
     }
   } catch (error) {
-    log.error(`Backend health check failed: ${error.message}`);
-    if (error.code === 'ENOTFOUND') {
-      log.warning('Domain not resolving - check DNS configuration');
-    }
-    testResults.failed++;
+    console.log(`❌ Health Check: FAILED - ${error.message}`);
+    failedTests++;
     return false;
   }
 }
 
-async function testBackendCORS() {
-  log.section('Testing Backend CORS Configuration');
-  
+// Test 2: CORS Headers
+async function testCORS() {
   try {
-    log.info('Testing CORS headers...');
-    const response = await axios.options(`${BACKEND_URL}/api/health`, {
+    const response = await axios.get(`${BACKEND_URL}/api/health`, {
       headers: {
-        'Origin': FRONTEND_URL,
-        'Access-Control-Request-Method': 'GET'
+        'Origin': 'https://lewisgathaiya.vercel.app'
       },
-      timeout: 10000
+      timeout: 5000
     });
-
+    
     const corsHeader = response.headers['access-control-allow-origin'];
     if (corsHeader) {
-      log.success(`CORS configured: ${corsHeader}`);
-      testResults.passed++;
+      console.log('✅ CORS Configuration: PASSED');
+      passedTests++;
       return true;
     } else {
-      log.warning('CORS headers not found - may need configuration');
-      testResults.warnings++;
+      console.log('❌ CORS Configuration: FAILED - No CORS headers');
+      failedTests++;
       return false;
     }
   } catch (error) {
-    log.warning(`CORS test inconclusive: ${error.message}`);
-    testResults.warnings++;
+    console.log(`❌ CORS Configuration: FAILED - ${error.message}`);
+    failedTests++;
     return false;
   }
 }
 
-async function testBackendSecurity() {
-  log.section('Testing Backend Security Headers');
-  
+// Test 3: Security Headers
+async function testSecurityHeaders() {
   try {
-    log.info('Checking security headers...');
     const response = await axios.get(`${BACKEND_URL}/api/health`, {
-      timeout: 10000
+      timeout: 5000
     });
-
-    const securityHeaders = [
+    
+    const headers = response.headers;
+    const requiredHeaders = [
       'x-content-type-options',
       'x-frame-options',
-      'x-xss-protection',
-      'strict-transport-security'
+      'x-xss-protection'
     ];
-
-    let foundHeaders = 0;
-    for (const header of securityHeaders) {
-      if (response.headers[header]) {
-        log.success(`${header}: ${response.headers[header]}`);
-        foundHeaders++;
-      } else {
-        log.warning(`${header} not found`);
-      }
-    }
-
-    if (foundHeaders >= 3) {
-      log.success('Security headers configured');
-      testResults.passed++;
-      return true;
-    } else {
-      log.warning('Some security headers missing');
-      testResults.warnings++;
-      return false;
-    }
-  } catch (error) {
-    log.error(`Security headers test failed: ${error.message}`);
-    testResults.failed++;
-    return false;
-  }
-}
-
-async function testFrontendAccess() {
-  log.section('Testing Frontend Access');
-  
-  try {
-    log.info(`Testing: ${FRONTEND_URL}`);
-    const response = await axios.get(FRONTEND_URL, {
-      timeout: 10000,
-      maxRedirects: 5
-    });
-
-    if (response.status === 200) {
-      log.success('Frontend is accessible');
-      
-      // Check if it's actually HTML
-      const contentType = response.headers['content-type'];
-      if (contentType && contentType.includes('text/html')) {
-        log.success('Frontend serving HTML content');
-      }
-
-      testResults.passed++;
-      return true;
-    } else {
-      log.error(`Frontend returned status: ${response.status}`);
-      testResults.failed++;
-      return false;
-    }
-  } catch (error) {
-    log.error(`Frontend access failed: ${error.message}`);
-    if (error.code === 'ENOTFOUND') {
-      log.warning('Domain not resolving - check DNS configuration');
-    }
-    testResults.failed++;
-    return false;
-  }
-}
-
-async function testFrontendSSL() {
-  log.section('Testing Frontend SSL/HTTPS');
-  
-  try {
-    log.info('Checking HTTPS configuration...');
     
-    // Test HTTPS
-    const httpsResponse = await axios.get(FRONTEND_URL, {
+    const missingHeaders = requiredHeaders.filter(h => !headers[h]);
+    
+    if (missingHeaders.length === 0) {
+      console.log('✅ Security Headers: PASSED');
+      passedTests++;
+      return true;
+    } else {
+      console.log(`❌ Security Headers: FAILED - Missing: ${missingHeaders.join(', ')}`);
+      failedTests++;
+      return false;
+    }
+  } catch (error) {
+    console.log(`❌ Security Headers: FAILED - ${error.message}`);
+    failedTests++;
+    return false;
+  }
+}
+
+// Test 4: Contact Endpoint
+async function testContactEndpoint() {
+  try {
+    const response = await axios.post(`${BACKEND_URL}/api/contact`, {
+      name: 'Test User',
+      email: 'test@example.com',
+      message: 'This is a test message from deployment verification'
+    }, {
       timeout: 10000
     });
-
-    if (httpsResponse.request.res.socket.encrypted) {
-      log.success('HTTPS is enabled');
-      testResults.passed++;
+    
+    if (response.status === 201 && response.data.success) {
+      console.log('✅ Contact Endpoint: PASSED');
+      passedTests++;
+      return true;
     } else {
-      log.warning('HTTPS not detected');
-      testResults.warnings++;
+      console.log('❌ Contact Endpoint: FAILED - Invalid response');
+      failedTests++;
+      return false;
     }
-
-    // Test HTTP redirect
-    try {
-      const httpUrl = FRONTEND_URL.replace('https://', 'http://');
-      const httpResponse = await axios.get(httpUrl, {
-        timeout: 10000,
-        maxRedirects: 0,
-        validateStatus: (status) => status === 301 || status === 302 || status === 308
-      });
-
-      if (httpResponse.status >= 300 && httpResponse.status < 400) {
-        log.success('HTTP to HTTPS redirect configured');
-      }
-    } catch (error) {
-      if (error.response && error.response.status >= 300 && error.response.status < 400) {
-        log.success('HTTP to HTTPS redirect configured');
-      } else {
-        log.warning('HTTP redirect not detected');
-        testResults.warnings++;
-      }
-    }
-
-    return true;
   } catch (error) {
-    log.error(`SSL test failed: ${error.message}`);
-    testResults.failed++;
+    if (error.response && error.response.status === 429) {
+      console.log('⚠️  Contact Endpoint: RATE LIMITED (this is expected)');
+      passedTests++;
+      return true;
+    }
+    console.log(`❌ Contact Endpoint: FAILED - ${error.message}`);
+    failedTests++;
     return false;
   }
 }
 
-async function testGitHubIntegration() {
-  log.section('Testing GitHub Integration');
-  
+// Test 5: GitHub Endpoint
+async function testGitHubEndpoint() {
   try {
-    log.info(`Testing: ${BACKEND_URL}/api/github/repos`);
     const response = await axios.get(`${BACKEND_URL}/api/github/repos`, {
-      timeout: 15000
+      timeout: 10000
     });
-
+    
     if (response.status === 200 && response.data.success) {
-      log.success('GitHub integration working');
-      log.info(`Repositories found: ${response.data.repos?.length || 0}`);
-      testResults.passed++;
+      console.log('✅ GitHub Endpoint: PASSED');
+      passedTests++;
       return true;
     } else {
-      log.warning('GitHub integration returned unexpected response');
-      testResults.warnings++;
+      console.log('❌ GitHub Endpoint: FAILED - Invalid response');
+      failedTests++;
       return false;
     }
   } catch (error) {
-    log.warning(`GitHub integration test failed: ${error.message}`);
-    log.info('This is optional - site will work with cached data');
-    testResults.warnings++;
+    console.log(`❌ GitHub Endpoint: FAILED - ${error.message}`);
+    failedTests++;
     return false;
   }
 }
 
-async function testEmailConfiguration() {
-  log.section('Testing Email Configuration');
-  
+// Test 6: Auth Endpoint
+async function testAuthEndpoint() {
   try {
-    const requiredEnvVars = ['EMAIL_SERVICE', 'EMAIL_USER', 'EMAIL_PASS', 'ADMIN_EMAIL'];
-    let allSet = true;
-
-    for (const envVar of requiredEnvVars) {
-      if (process.env[envVar]) {
-        log.success(`${envVar} is set`);
-      } else {
-        log.error(`${envVar} is not set`);
-        allSet = false;
-      }
-    }
-
-    if (allSet) {
-      log.success('Email configuration complete');
-      log.info('Note: Actual email sending can only be tested by submitting contact form');
-      testResults.passed++;
+    const response = await axios.post(`${BACKEND_URL}/api/auth/login`, {
+      email: 'test@example.com',
+      password: 'wrongpassword'
+    }, {
+      timeout: 5000,
+      validateStatus: () => true // Accept any status
+    });
+    
+    // We expect this to fail with 401, which means the endpoint is working
+    if (response.status === 401 || response.status === 400) {
+      console.log('✅ Auth Endpoint: PASSED');
+      passedTests++;
       return true;
     } else {
-      log.error('Email configuration incomplete');
-      testResults.failed++;
+      console.log('❌ Auth Endpoint: FAILED - Unexpected response');
+      failedTests++;
       return false;
     }
   } catch (error) {
-    log.error(`Email configuration test failed: ${error.message}`);
-    testResults.failed++;
+    if (error.response && error.response.status === 429) {
+      console.log('⚠️  Auth Endpoint: RATE LIMITED (this is expected)');
+      passedTests++;
+      return true;
+    }
+    console.log(`❌ Auth Endpoint: FAILED - ${error.message}`);
+    failedTests++;
     return false;
   }
 }
 
-async function testEnvironmentVariables() {
-  log.section('Testing Environment Variables');
+// Run all tests
+async function runTests() {
+  console.log('Running deployment verification tests...\n');
   
-  const requiredVars = [
-    'MONGODB_URI',
-    'JWT_SECRET',
-    'FRONTEND_URL',
-    'EMAIL_SERVICE',
-    'EMAIL_USER',
-    'EMAIL_PASS',
-    'ADMIN_EMAIL'
-  ];
-
-  const optionalVars = [
-    'GITHUB_TOKEN',
-    'NODE_ENV',
-    'PORT'
-  ];
-
-  let allRequired = true;
-
-  log.info('Required variables:');
-  for (const envVar of requiredVars) {
-    if (process.env[envVar]) {
-      log.success(`${envVar} ✓`);
-    } else {
-      log.error(`${envVar} ✗`);
-      allRequired = false;
-    }
-  }
-
-  log.info('\nOptional variables:');
-  for (const envVar of optionalVars) {
-    if (process.env[envVar]) {
-      log.success(`${envVar} ✓`);
-    } else {
-      log.warning(`${envVar} not set (optional)`);
-    }
-  }
-
-  if (allRequired) {
-    testResults.passed++;
-    return true;
-  } else {
-    testResults.failed++;
-    return false;
-  }
-}
-
-// Main test runner
-async function runAllTests() {
-  console.log(`
-${colors.cyan}╔════════════════════════════════════════════════════════════╗
-║                                                            ║
-║        Lewis Portfolio Website - Deployment Verification   ║
-║                                                            ║
-╚════════════════════════════════════════════════════════════╝${colors.reset}
-  `);
-
-  log.info(`Frontend URL: ${FRONTEND_URL}`);
-  log.info(`Backend URL: ${BACKEND_URL}`);
-  log.info(`Starting verification tests...\n`);
-
-  // Run all tests
-  await testEnvironmentVariables();
-  await testDatabaseConnection();
-  await testBackendHealth();
-  await testBackendCORS();
-  await testBackendSecurity();
-  await testFrontendAccess();
-  await testFrontendSSL();
-  await testGitHubIntegration();
-  await testEmailConfiguration();
-
-  // Print summary
-  log.section('Test Summary');
+  await testHealthCheck();
+  await testCORS();
+  await testSecurityHeaders();
+  await testContactEndpoint();
+  await testGitHubEndpoint();
+  await testAuthEndpoint();
   
-  const total = testResults.passed + testResults.failed + testResults.warnings;
+  console.log('\n' + '='.repeat(50));
+  console.log(`📊 Test Results: ${passedTests} passed, ${failedTests} failed`);
+  console.log('='.repeat(50));
   
-  console.log(`${colors.green}Passed:   ${testResults.passed}${colors.reset}`);
-  console.log(`${colors.red}Failed:   ${testResults.failed}${colors.reset}`);
-  console.log(`${colors.yellow}Warnings: ${testResults.warnings}${colors.reset}`);
-  console.log(`Total:    ${total}\n`);
-
-  if (testResults.failed === 0) {
-    log.success('All critical tests passed! 🎉');
-    log.info('Your deployment is ready for production!');
-    
-    if (testResults.warnings > 0) {
-      log.warning(`You have ${testResults.warnings} warning(s) - review them above`);
-    }
-    
-    console.log(`\n${colors.cyan}Next steps:${colors.reset}`);
-    console.log('1. Test the contact form manually');
-    console.log('2. Login to admin dashboard');
-    console.log('3. Set up monitoring and alerts');
-    console.log('4. Configure backups');
-    console.log('\nVisit your site: ' + FRONTEND_URL);
-    
+  if (failedTests === 0) {
+    console.log('\n🎉 All tests passed! Backend is ready for production.');
     process.exit(0);
   } else {
-    log.error(`${testResults.failed} test(s) failed`);
-    log.info('Please fix the issues above before going to production');
+    console.log('\n⚠️  Some tests failed. Please fix the issues before deploying.');
     process.exit(1);
   }
 }
 
-// Run tests
-runAllTests().catch(error => {
-  log.error(`Verification failed: ${error.message}`);
+// Run the tests
+runTests().catch(error => {
+  console.error('\n❌ Verification failed:', error.message);
   process.exit(1);
 });

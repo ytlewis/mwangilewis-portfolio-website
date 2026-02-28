@@ -44,10 +44,11 @@ export default function Projects() {
       setLoading(true);
       setError(null);
 
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
       const endpoint = forceRefresh ? '/api/github/refresh' : '/api/github/repos';
       const method = forceRefresh ? 'POST' : 'GET';
 
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
+      const response = await fetch(`${backendUrl}${endpoint}`, {
         method,
         headers: {
           'Content-Type': 'application/json',

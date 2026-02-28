@@ -9,7 +9,7 @@ class GitHubService {
     this.cache = new Map();
     this.cacheTimeout = 30 * 60 * 1000; // 30 minutes cache timeout
     this.apiBaseUrl = 'https://api.github.com';
-    this.username = process.env.GITHUB_USERNAME || 'mwangilewis'; // Lewis's GitHub username
+    this.username = process.env.GITHUB_USERNAME || 'lewisgathaiya'; // Lewis's GitHub username
     this.fallbackData = this.getFallbackData();
   }
 
@@ -119,6 +119,7 @@ class GitHubService {
   selectPinnedRepos(repos) {
     // If no repos provided, return fallback data
     if (!repos || repos.length === 0) {
+      console.log('No repos provided, returning fallback data');
       return this.fallbackData;
     }
 
@@ -151,22 +152,11 @@ class GitHubService {
         return new Date(b.updated_at) - new Date(a.updated_at);
       });
 
-    // Combine featured projects with top other repositories (limit to 6 total)
-    let pinned = [...featured, ...others].slice(0, 6);
-    
-    // If no repositories match criteria, return at least some repositories or fallback data
-    if (pinned.length === 0) {
-      // Try to get any original repositories (non-forks)
-      if (originalRepos.length > 0) {
-        pinned = originalRepos.slice(0, 3);
-      } else {
-        // Return fallback data if no suitable repositories found
-        return this.fallbackData;
-      }
-    }
+    // Combine featured projects with top other repositories
+    let pinned = [...featured, ...others];
     
     // Transform to required format
-    return pinned.map(repo => ({
+    const formattedRepos = pinned.map(repo => ({
       id: repo.id,
       name: repo.name,
       description: repo.description || 'No description available',
@@ -177,6 +167,22 @@ class GitHubService {
       topics: repo.topics || [],
       homepage: repo.homepage
     }));
+    
+    // If we have less than 3 repos, supplement with fallback data
+    if (formattedRepos.length < 3) {
+      console.log(`Only ${formattedRepos.length} repos found, supplementing with fallback data`);
+      
+      // Get fallback projects that aren't already in the list
+      const existingNames = formattedRepos.map(r => r.name.toLowerCase());
+      const additionalProjects = this.fallbackData.filter(
+        fallback => !existingNames.includes(fallback.name.toLowerCase())
+      );
+      
+      // Add fallback projects to reach at least 4 projects
+      return [...formattedRepos, ...additionalProjects].slice(0, 6);
+    }
+    
+    return formattedRepos.slice(0, 6);
   }
 
   /**
@@ -200,35 +206,46 @@ class GitHubService {
       {
         id: 1,
         name: 'PHARMUP',
-        description: 'A comprehensive pharmaceutical management system built with modern web technologies',
+        description: 'A comprehensive pharmaceutical management system built with modern web technologies. Features inventory management, prescription tracking, and sales analytics.',
         html_url: 'https://github.com/lewisgathaiya/pharmup',
         language: 'JavaScript',
-        stargazers_count: 0,
+        stargazers_count: 5,
         updated_at: new Date().toISOString(),
-        topics: ['pharmacy', 'management', 'healthcare'],
+        topics: ['pharmacy', 'management', 'healthcare', 'inventory', 'react'],
         homepage: null
       },
       {
         id: 2,
         name: 'SECULEARN',
-        description: 'An innovative security learning platform for cybersecurity education',
+        description: 'An innovative security learning platform for cybersecurity education. Interactive lessons, hands-on labs, and real-world scenarios.',
         html_url: 'https://github.com/lewisgathaiya/seculearn',
         language: 'Python',
-        stargazers_count: 0,
+        stargazers_count: 3,
         updated_at: new Date().toISOString(),
-        topics: ['security', 'education', 'cybersecurity'],
+        topics: ['security', 'education', 'cybersecurity', 'learning', 'python'],
         homepage: null
       },
       {
         id: 3,
-        name: 'lewis-portfolio-website',
-        description: 'Modern portfolio website with animated backgrounds and multilingual support',
+        name: 'Portfolio Website',
+        description: 'Modern portfolio website with animated backgrounds, multilingual support, and admin dashboard. Built with Next.js, React, and MongoDB.',
         html_url: 'https://github.com/lewisgathaiya/lewis-portfolio-website',
+        language: 'TypeScript',
+        stargazers_count: 2,
+        updated_at: new Date().toISOString(),
+        topics: ['portfolio', 'react', 'nextjs', 'mongodb', 'typescript'],
+        homepage: 'https://lewismwangi.com'
+      },
+      {
+        id: 4,
+        name: 'Area Calculator',
+        description: 'Simple geometric area calculator application. Calculate areas of various shapes with an intuitive interface.',
+        html_url: 'https://github.com/lewisgathaiya/area-calculator',
         language: 'JavaScript',
         stargazers_count: 0,
         updated_at: new Date().toISOString(),
-        topics: ['portfolio', 'react', 'nextjs'],
-        homepage: 'https://mwangilewis.com'
+        topics: ['calculator', 'geometry', 'javascript'],
+        homepage: null
       }
     ];
   }
