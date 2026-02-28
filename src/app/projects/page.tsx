@@ -44,29 +44,34 @@ export default function Projects() {
       setLoading(true);
       setError(null);
 
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
-      const endpoint = forceRefresh ? '/api/github/refresh' : '/api/github/repos';
-      const method = forceRefresh ? 'POST' : 'GET';
-
-      const response = await fetch(`${backendUrl}${endpoint}`, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      // Fetch directly from GitHub API
+      const githubUsername = 'ytlewis';
+      const githubResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`);
+      
+      if (!githubResponse.ok) {
+        throw new Error(`GitHub API returned status ${githubResponse.status}`);
       }
 
-      const data: ProjectsResponse = await response.json();
+      const githubRepos = await githubResponse.json();
+      
+      // Filter and format repos
+      const formattedRepos = githubRepos
+        .filter((repo: any) => !repo.fork)
+        .map((repo: any) => ({
+          id: repo.id,
+          name: repo.name,
+          description: repo.description || 'No description available',
+          html_url: repo.html_url,
+          language: repo.language || 'Unknown',
+          stargazers_count: repo.stargazers_count,
+          updated_at: repo.updated_at,
+          topics: repo.topics || [],
+          homepage: repo.homepage
+        }))
+        .slice(0, 10); // Limit to 10 repos
 
-      if (data.success) {
-        setProjects(data.repos);
-        setFilteredProjects(data.repos);
-      } else {
-        throw new Error('Failed to fetch projects');
-      }
+      setProjects(formattedRepos);
+      setFilteredProjects(formattedRepos);
     } catch (err) {
       console.error('Error fetching projects:', err);
       setError('Failed to load projects. Please try again later.');
@@ -77,7 +82,7 @@ export default function Projects() {
           id: 1,
           name: 'PHARMUP',
           description: 'A comprehensive pharmaceutical management system built with modern web technologies',
-          html_url: 'https://github.com/lewisgathaiya/pharmup',
+          html_url: 'https://github.com/ytlewis/pharmup',
           language: 'JavaScript',
           stargazers_count: 0,
           updated_at: new Date().toISOString(),
@@ -88,7 +93,7 @@ export default function Projects() {
           id: 2,
           name: 'SECULEARN',
           description: 'An innovative security learning platform for cybersecurity education',
-          html_url: 'https://github.com/lewisgathaiya/seculearn',
+          html_url: 'https://github.com/ytlewis/seculearn',
           language: 'Python',
           stargazers_count: 0,
           updated_at: new Date().toISOString(),
@@ -99,12 +104,12 @@ export default function Projects() {
           id: 3,
           name: 'lewis-portfolio-website',
           description: 'Modern portfolio website with animated backgrounds and multilingual support',
-          html_url: 'https://github.com/lewisgathaiya/lewis-portfolio-website',
+          html_url: 'https://github.com/ytlewis/lewis-portfolio-website',
           language: 'TypeScript',
           stargazers_count: 0,
           updated_at: new Date().toISOString(),
           topics: ['portfolio', 'react', 'nextjs'],
-          homepage: 'https://mwangilewis.com'
+          homepage: 'https://lewismwangi.com'
         }
       ];
       
@@ -315,7 +320,7 @@ export default function Projects() {
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Project data is fetched live from{' '}
               <a
-                href="https://github.com/lewisgathaiya"
+                href="https://github.com/ytlewis"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-red-600 hover:text-red-700 underline"
