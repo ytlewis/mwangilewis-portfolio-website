@@ -36,7 +36,7 @@ export default function Projects() {
   const [refreshing, setRefreshing] = useState(false);
 
   // Featured project names for highlighting
-  const featuredProjects = ['pharmup', 'seculearn'];
+  const featuredProjects = ['rento', 'pharmup', 'seculearn'];
 
   // Fetch projects from GitHub API
   const fetchProjects = async (forceRefresh = false) => {
@@ -92,34 +92,23 @@ export default function Projects() {
       // Don't show error message, just use fallback data seamlessly
       setError(null);
       
-      // Set fallback data with your featured projects
+      // Set fallback data with your actual GitHub projects
       const fallbackProjects: GitHubRepo[] = [
         {
           id: 1,
-          name: 'pharmup',
-          description: 'A comprehensive pharmaceutical management system built with modern web technologies',
-          html_url: 'https://github.com/ytlewis/pharmup',
-          language: 'JavaScript',
-          stargazers_count: 5,
+          name: 'rento',
+          description: 'Modern rental management platform with M-Pesa integration for seamless property management',
+          html_url: 'https://github.com/ytlewis/rento',
+          language: 'TypeScript',
+          stargazers_count: 3,
           updated_at: new Date().toISOString(),
-          topics: ['pharmacy', 'management', 'healthcare', 'react', 'nodejs'],
+          topics: ['rental', 'property-management', 'mpesa', 'nextjs', 'typescript'],
           homepage: ''
         },
         {
           id: 2,
-          name: 'seculearn',
-          description: 'An innovative security learning platform for cybersecurity education and training',
-          html_url: 'https://github.com/ytlewis/seculearn',
-          language: 'Python',
-          stargazers_count: 3,
-          updated_at: new Date().toISOString(),
-          topics: ['security', 'education', 'cybersecurity', 'learning', 'python'],
-          homepage: ''
-        },
-        {
-          id: 3,
           name: 'mwangilewis-portfolio-website',
-          description: 'Modern portfolio website with animated backgrounds, multilingual support, and admin dashboard',
+          description: 'Professional portfolio with multilingual support, animated backgrounds, and admin dashboard',
           html_url: 'https://github.com/ytlewis/mwangilewis-portfolio-website',
           language: 'TypeScript',
           stargazers_count: 2,
@@ -128,36 +117,25 @@ export default function Projects() {
           homepage: 'https://lewismwangi.com'
         },
         {
-          id: 4,
-          name: 'data-structures-algorithms',
-          description: 'Implementation of common data structures and algorithms in multiple programming languages',
-          html_url: 'https://github.com/ytlewis/data-structures-algorithms',
-          language: 'Java',
-          stargazers_count: 1,
-          updated_at: new Date().toISOString(),
-          topics: ['algorithms', 'data-structures', 'java', 'python'],
-          homepage: ''
-        },
-        {
-          id: 5,
-          name: 'web-scraper-tool',
-          description: 'Powerful web scraping tool with data extraction and export capabilities',
-          html_url: 'https://github.com/ytlewis/web-scraper-tool',
-          language: 'Python',
-          stargazers_count: 1,
-          updated_at: new Date().toISOString(),
-          topics: ['web-scraping', 'python', 'automation', 'data-extraction'],
-          homepage: ''
-        },
-        {
-          id: 6,
-          name: 'task-manager-app',
-          description: 'Full-stack task management application with real-time updates',
-          html_url: 'https://github.com/ytlewis/task-manager-app',
+          id: 3,
+          name: 'pharmup',
+          description: 'Comprehensive pharmaceutical management system built with modern web technologies',
+          html_url: 'https://github.com/ytlewis/pharmup',
           language: 'JavaScript',
-          stargazers_count: 1,
+          stargazers_count: 5,
           updated_at: new Date().toISOString(),
-          topics: ['task-management', 'react', 'nodejs', 'mongodb'],
+          topics: ['pharmacy', 'management', 'healthcare', 'react', 'nodejs'],
+          homepage: ''
+        },
+        {
+          id: 4,
+          name: 'seculearn',
+          description: 'Innovative security learning platform for cybersecurity education and training',
+          html_url: 'https://github.com/ytlewis/seculearn',
+          language: 'Python',
+          stargazers_count: 3,
+          updated_at: new Date().toISOString(),
+          topics: ['security', 'education', 'cybersecurity', 'learning', 'python'],
           homepage: ''
         }
       ];
