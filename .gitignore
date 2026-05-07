@@ -117,7 +117,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public - DO NOT ignore, Next.js needs public/ for static assets like images
 
 # Storybook build outputs
 .out

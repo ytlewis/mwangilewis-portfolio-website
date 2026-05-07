@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E63946;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C62828;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Rounded square background for Apple -->
+  <rect x="10" y="10" width="160" height="160" rx="35" fill="url(#grad1)" filter="url(#shadow)"/>
+  
+  <!-- Code brackets symbol - larger for Apple icon -->
+  <path d="M 55 65 L 35 90 L 55 115" stroke="white" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 125 65 L 145 90 L 125 115" stroke="white" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Forward slash in the middle -->
+  <line x1="80" y1="115" x2="100" y2="65" stroke="white" stroke-width="7" stroke-linecap="round"/>
+  
+  <!-- Small accent dots for tech feel -->
+  <circle cx="90" cy="40" r="3" fill="white" opacity="0.6"/>
+  <circle cx="90" cy="140" r="3" fill="white" opacity="0.6"/>
+</svg>
