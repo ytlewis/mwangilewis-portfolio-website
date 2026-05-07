@@ -8,7 +8,7 @@ import { generatePersonSchema, generateWebSiteSchema } from '@/lib/seo'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lewisgathaiya.vercel.app'),
+  metadataBase: new URL('https://www.lewismwangi.com'),
   title: {
     default: 'Lewis Gathaiya - Full-Stack Developer Portfolio',
     template: '%s | Lewis Gathaiya',
@@ -17,8 +17,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
     ],
     apple: '/apple-touch-icon.svg',
+    shortcut: '/favicon.ico',
   },
   manifest: '/site.webmanifest',
   keywords: [
