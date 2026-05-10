@@ -9,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/api/'],
       },
     ],
-    sitemap: 'https://mwangilewis.com/sitemap.xml',
+    sitemap: 'https://www.lewismwangi.com/sitemap.xml',
+    host: 'https://www.lewismwangi.com',
   };
 }

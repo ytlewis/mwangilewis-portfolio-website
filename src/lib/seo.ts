@@ -56,8 +56,8 @@ export const generatePersonSchema = (): PersonSchema => {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Lewis Gathaiya',
-    jobTitle: 'Full-Stack Developer',
-    url: 'https://mwangilewis.com',
+    jobTitle: 'Cybersecurity Professional & Information Systems Specialist',
+    url: 'https://www.lewismwangi.com',
     email: 'gathaiyalewis1122@gmail.com',
     telephone: '+254702320995',
     address: {
@@ -66,11 +66,15 @@ export const generatePersonSchema = (): PersonSchema => {
       addressCountry: 'Kenya',
     },
     sameAs: [
-      'https://github.com/lewisgathaiya',
+      'https://github.com/ytlewis',
       'https://linkedin.com/in/lewisgathaiya',
-      'https://twitter.com/lewisgathaiya',
+      'https://www.lewismwangi.com',
     ],
     knowsAbout: [
+      'Cybersecurity',
+      'Ethical Hacking',
+      'Network Security',
+      'Penetration Testing',
       'JavaScript',
       'TypeScript',
       'React',
@@ -78,18 +82,14 @@ export const generatePersonSchema = (): PersonSchema => {
       'Node.js',
       'Express',
       'MongoDB',
-      'PostgreSQL',
-      'Python',
-      'Django',
-      'AWS',
-      'Docker',
       'Full-Stack Development',
       'Web Development',
+      'Information Systems',
       'Software Engineering',
     ],
     alumniOf: {
       '@type': 'EducationalOrganization',
-      name: 'University of Nairobi',
+      name: 'United States International University Africa',
     },
   };
 };
@@ -102,13 +102,13 @@ export const generateWebSiteSchema = (): WebSiteSchema => {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Lewis Gathaiya Portfolio',
-    url: 'https://mwangilewis.com',
-    description: 'Full-stack developer portfolio showcasing modern web development skills, projects, and experience',
+    url: 'https://www.lewismwangi.com',
+    description: 'Cybersecurity professional and full-stack developer portfolio — ethical hacking, network security, React, Next.js, Node.js. Based in Nairobi, Kenya.',
     author: {
       '@type': 'Person',
       name: 'Lewis Gathaiya',
     },
-    inLanguage: ['en', 'sw', 'es'],
+    inLanguage: ['en', 'sw', 'fr'],
   };
 };
 
@@ -124,7 +124,7 @@ export const generateBreadcrumbSchema = (
       '@type': 'ListItem' as const,
       position: 1,
       name: 'Home',
-      item: 'https://mwangilewis.com',
+      item: 'https://www.lewismwangi.com',
     },
   ];
 
@@ -133,7 +133,7 @@ export const generateBreadcrumbSchema = (
       '@type': 'ListItem' as const,
       position: 2,
       name: pageName,
-      item: `https://mwangilewis.com${path}`,
+      item: `https://www.lewismwangi.com${path}`,
     });
   }
 
@@ -191,7 +191,7 @@ export const pageMetadata = {
  * Generate canonical URL for a page
  */
 export const generateCanonicalUrl = (path: string): string => {
-  const baseUrl = 'https://mwangilewis.com';
+  const baseUrl = 'https://www.lewismwangi.com';
   return `${baseUrl}${path}`;
 };
 
