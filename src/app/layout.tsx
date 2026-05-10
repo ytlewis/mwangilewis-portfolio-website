@@ -14,14 +14,6 @@ export const metadata: Metadata = {
     template: '%s | Lewis Gathaiya',
   },
   description: 'Full-stack developer specializing in React, Next.js, Node.js, and modern web technologies. View my projects, skills, and experience.',
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: 'any' },
-    ],
-    apple: '/apple-touch-icon.svg',
-    shortcut: '/favicon.ico',
-  },
   manifest: '/site.webmanifest',
   keywords: [
     'Lewis Gathaiya',
