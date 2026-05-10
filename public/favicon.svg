@@ -1,26 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Background circle with gradient -->
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#E63946;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#C62828;stop-opacity:1" />
+    <!-- Dark background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    <!-- Red accent gradient -->
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E63946;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c1121f;stop-opacity:1" />
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
   </defs>
-  
-  <!-- Main circle background -->
-  <circle cx="50" cy="50" r="48" fill="url(#grad1)" filter="url(#shadow)"/>
-  
-  <!-- Code brackets symbol -->
-  <path d="M 30 35 L 20 50 L 30 65" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 70 35 L 80 50 L 70 65" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- Forward slash in the middle -->
-  <line x1="45" y1="65" x2="55" y2="35" stroke="white" stroke-width="4" stroke-linecap="round"/>
-  
-  <!-- Small accent dots for tech feel -->
-  <circle cx="50" cy="20" r="2" fill="white" opacity="0.6"/>
-  <circle cx="50" cy="80" r="2" fill="white" opacity="0.6"/>
+
+  <!-- Rounded square background -->
+  <rect x="4" y="4" width="92" height="92" rx="18" ry="18" fill="url(#bgGrad)"/>
+
+  <!-- Shield shape (cybersecurity motif) -->
+  <path d="M50 12 L78 24 L78 52 Q78 72 50 88 Q22 72 22 52 L22 24 Z"
+        fill="url(#redGrad)" opacity="0.15"/>
+  <path d="M50 16 L74 27 L74 52 Q74 69 50 83 Q26 69 26 52 L26 27 Z"
+        fill="none" stroke="#E63946" stroke-width="2" opacity="0.6"/>
+
+  <!-- Letter L -->
+  <text x="26" y="68"
+        font-family="'Arial Black', 'Arial', sans-serif"
+        font-weight="900"
+        font-size="42"
+        fill="white"
+        filter="url(#glow)">L</text>
+
+  <!-- Letter G in red -->
+  <text x="52" y="68"
+        font-family="'Arial Black', 'Arial', sans-serif"
+        font-weight="900"
+        font-size="42"
+        fill="#E63946"
+        filter="url(#glow)">G</text>
+
+  <!-- Small lock icon at bottom-right corner -->
+  <g transform="translate(64, 62)" opacity="0.9">
+    <!-- Lock body -->
+    <rect x="0" y="5" width="12" height="9" rx="2" fill="#E63946"/>
+    <!-- Lock shackle -->
+    <path d="M2 5 L2 3 Q6 -1 10 3 L10 5" fill="none" stroke="#E63946" stroke-width="2" stroke-linecap="round"/>
+    <!-- Keyhole -->
+    <circle cx="6" cy="9" r="1.5" fill="#1a1a2e"/>
+    <rect x="5" y="9.5" width="2" height="2.5" rx="0.5" fill="#1a1a2e"/>
+  </g>
+
+  <!-- Subtle circuit dot accents -->
+  <circle cx="18" cy="18" r="2" fill="#E63946" opacity="0.4"/>
+  <circle cx="82" cy="18" r="2" fill="#E63946" opacity="0.4"/>
+  <circle cx="18" cy="82" r="2" fill="#E63946" opacity="0.4"/>
+  <circle cx="82" cy="82" r="2" fill="#E63946" opacity="0.4"/>
+
+  <!-- Thin red border -->
+  <rect x="4" y="4" width="92" height="92" rx="18" ry="18"
+        fill="none" stroke="#E63946" stroke-width="1.5" opacity="0.4"/>
 </svg>
